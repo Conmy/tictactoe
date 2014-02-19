@@ -40,7 +40,7 @@ def checkIfFull(board):
     for i in board:
         if i == " ":
             return False
-    print "Board is full. DRAW GAME"
+    print("Board is full. DRAW GAME")
     return True
 
 # Sets the move on the board in the specified position.
@@ -62,25 +62,25 @@ def isWinner(bo, le):
 # True if there is a winner.
 def checkForWinner(board):
     if isWinner(board, "X"):
-        print "X WINS"
+        print("X WINS")
         return True
     elif isWinner(board, "O"):
-        print "O WINS"
+        print("O WINS")
         return True
     else:
         return False
 
 # Print the board to the screen.
 def printBoard(board):
-    print board[7] + '|' + board[8] + '|' + board[9]
-    print '-+-+-'
-    print board[4] + '|' + board[5] + '|' + board[6]
-    print '-+-+-'
-    print board[1] + '|' + board[2] + '|' + board[3]
+    print(board[7] + '|' + board[8] + '|' + board[9])
+    print('-+-+-')
+    print(board[4] + '|' + board[5] + '|' + board[6])
+    print('-+-+-')
+    print(board[1] + '|' + board[2] + '|' + board[3])
 
 # Get the next player move.
 def getPlayerMove():
-    return int(raw_input("Enter your move: "))
+    return int(input("Enter your move: "))
 
 # Get the computer's move.
 def generateComputerMove():
@@ -92,13 +92,13 @@ def MakeMove(board):
     global Letter
     
     if PlayersTurn:
-        print "Player's move."
+        print("Player's move.")
         position = getPlayerMove()
         while validateMove(board, position) == False:
             position = getPlayerMove()
         setMove(board, position, Letter)
     else:
-        print "Computer's move:"
+        print("Computer's move:")
         position = generateComputerMove()
         while validateMove(board, position) == False:
             position = generateComputerMove()
@@ -108,10 +108,10 @@ def MakeMove(board):
 def setPlayerCharacter():
     global PlayersTurn
     global Letter
-    result = str(raw_input("Are you (X) or (O): "))
+    result = str(input("Are you (X) or (O): "))
     result = result.upper()
     while result != 'X' and result != 'O':
-        result = str(raw_input("Are you (X) or (O): "))
+        result = str(input("Are you (X) or (O): "))
         result = result.upper()
     if result == 'X':
         PlayersTurn = False
@@ -122,12 +122,12 @@ def setPlayerCharacter():
 
 # Print help to the user to know how to play.
 def printHelp():
-    print '7|8|9'
-    print '-+-+-'
-    print '4|5|6'
-    print '-+-+-'
-    print '1|2|3'
-    print 'Number corresponds to position.'
+    print('7|8|9')
+    print('-+-+-')
+    print('4|5|6')
+    print('-+-+-')
+    print('1|2|3')
+    print('Number corresponds to position.')
 
 # =============================================================================
 # Game Start
@@ -139,13 +139,13 @@ Letter = "O"
 PlayersTurn = True
 
 # Print game header.
-print "==========="
-print "TIC TAC TOE"
-print "==========="
+print ("===========")
+print ("TIC TAC TOE")
+print ("===========")
 
 printHelp()
 
-result = str(raw_input("Press 5 for new game: "))
+result = str(input("Press 5 for new game: "))
 
 while result == '5':
     # Set up board.
@@ -164,7 +164,7 @@ while result == '5':
         printBoard(Board)
 
     # Check if the user wants to play again.
-    result = str(raw_input("Press 5 for new game: "))
+    result = str(input("Press 5 for new game: "))
 
 
 
